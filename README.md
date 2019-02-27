@@ -1,2 +1,2 @@
 # Pong
-All credit goes to seve0044
+Pong created with javascript, css and html.
