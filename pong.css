@@ -1,0 +1,91 @@
+.wrapper{
+    display: flex;
+flex-flow: column;
+height: 100%;
+}
+#outer {
+
+height: 100%;
+}
+
+#scoreButtons{
+    text-align: center;
+    flex: 0 1 auto;
+}
+#pointP1,
+#pointP2 {
+    height: 15%;
+    font-family: Arial Black;
+    font-size:3vw;
+
+}
+
+#pointP1 {
+    width: 30%;
+    float: left;
+    text-align: left;
+}
+
+#pointP2 {
+    width: 30%;
+    float: right;
+    text-align: right;
+}
+
+#buttons {
+    width: auto;
+    text-align: center;
+    display: inline-block;
+}
+
+#canvasHolder {
+            margin-left: auto;
+    margin-right: auto;
+    /*display: block;*/
+    width: 100%;
+    text-align:center;
+    flex: 1 1 auto;
+}
+
+button {
+    background: #ededed;
+    border: 3px solid #ccc;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Arial Black;
+    font-size: 20px;
+}
+
+button:hover {
+    background: #e5e5e5;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    background: #e5e5e5;
+    -webkit-box-shadow: inset 0px 0px 10x #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 10px #c1c1c1;
+    box-shadow: inset 0px 0px 10px #c1c1c1;
+}
+
+.highlight {
+    transition: all 0.35s;
+    border-bottom: 2px solid white;
+    position: absolute;
+    top: 0;
+    background: red;
+    left: 0;
+    z-index: -1;
+    border-radius: 20px;
+    display: block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+html,
+body {
+height: 100%;
+margin: 0
+}

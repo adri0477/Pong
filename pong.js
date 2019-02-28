@@ -14,7 +14,7 @@ const KEY_P1_DOWN = 's';
 const KEY_P2_UP = 'ArrowUp';
 const KEY_P2_DOWN = 'ArrowDown';
 
-var P1SPEED = 6;
+var P1SPEED = 5.5;
 var P2SPEED = P1SPEED;
 var AISPEED = P1SPEED + 0.5;
 var BALLSPEED = 7;
@@ -56,20 +56,14 @@ const createCanvas = enableAi =>
 {
     AI = enableAi;
     document.getElementById("canvasHolder").appendChild(canvas);
-    animationFrame(step); //Bed animation frame om at kalde vores "step"-funktion.
+    animationFrame(step); //Bed animation frame om at kalde vores "step"-funktionen.
 }
 
 const singleplayer = () => createCanvas(true);
 const multiplayer = () => createCanvas(false);
-
 const reset = () => location.reload();
 
-document.getElementById("singleplayer").addEventListener("click", function(){
-    singleplayer();
-});
-document.getElementById("multiplayer").addEventListener("click", function(){
-    multiplayer();
-});
+
 class Ball
 {
     constructor()
@@ -219,23 +213,17 @@ var player2 = new Player(gameWidth - 10 - player1.width);
 
 var ball = new Ball();
 
-function objectIntersects(obj1, obj2)
-{
-    return intersects(obj1.x, obj1.x + obj1.width, obj1.y, obj1.y + obj1.height, obj2.x, obj2.x + obj2.width, obj2.y, obj2.y + obj2.height);
-}
-
-function intersects(ax1, ax2, ay1, ay2, bx1, bx2, by1, by2)
-{
-    return ax1 < bx2 && ax2 > bx1 && ay1 < by2 && ay2 > by1;
-}
+const objectIntersects = (obj1, obj2) => intersects(obj1.x, obj1.x + obj1.width, obj1.y, obj1.y + obj1.height, obj2.x, obj2.x + obj2.width, obj2.y, obj2.y + obj2.height);
+const intersects = (ax1, ax2, ay1, ay2, bx1, bx2, by1, by2) => ax1 < bx2 && ax2 > bx1 && ay1 < by2 && ay2 > by1;
 
 
+/*
 let triggers = document.querySelectorAll('button');
 let highlight = document.createElement('span');
 highlight.classList.add('highlight');
 document.getElementsByTagName('BODY')[0].appendChild(highlight);
 
-/*function highlightLink()
+function highlightLink()
 {
     let linkCoords = this.getBoundingClientRect();
     console.log(linkCoords)
@@ -250,10 +238,20 @@ document.getElementsByTagName('BODY')[0].appendChild(highlight);
     highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
 }
 
-
-
 triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
 
-
 */
+
+
+//Event listener's
+
+document.getElementById('singleplayer').addEventListener('click', () => {
+    singleplayer();
+});
+document.getElementById('multiplayer').addEventListener('click', () => {
+    multiplayer();
+});
+document.getElementById('reset').addEventListener('click', () =>{
+    reset();
+});
 }
