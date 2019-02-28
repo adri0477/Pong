@@ -247,10 +247,11 @@ triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
 
 document.getElementById('singleplayer').addEventListener('click', () => {
     singleplayer();
-});
+    
+},{once : true});
 document.getElementById('multiplayer').addEventListener('click', () => {
     multiplayer();
-});
+},{once : true});
 document.getElementById('reset').addEventListener('click', () =>{
     reset();
 });
