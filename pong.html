@@ -10,17 +10,18 @@
 
 <body>
 
-	<div class="wrapper">
-		<div>
+	<div class="wrapper" id="outer">
+		<div id="scoreButtons">
 
-			<div id="pointP1"></div>
-			<div id="pointP2"></div>
+			<div id="pointP1">1</div>
 
 			<div id=buttons>
-				<button onclick="singleplayer()">1 Player</button>
-				<button onclick="reset()">Reset</button>
-				<button onclick="multiplayer()">2 Player</button>
+					<button id="singleplayer" onclick="null">1 Player</button>
+					<button onclick="reset()">Reset</button>
+					<button id="multiplayer">2 Player</button>
 			</div>
+			<div id="pointP2"></div>
+
 
 		</div>
 		<div id="canvasHolder"></div>
@@ -32,34 +33,53 @@
 
 
 	<style>
+		.wrapper{
+			display: flex;
+  flex-flow: column;
+  height: 100%;
+		}
+		#outer {
+
+  height: 100%;
+}
+ 
+		#scoreButtons{
+			text-align: center;
+			flex: 0 1 auto;
+		}
 		#pointP1,
 		#pointP2 {
-			height: 100px;
+			height: 15%;
 			font-family: Arial Black;
-			font-size: 75px;
+			font-size:3vw;
+
 		}
 
 		#pointP1 {
-			width: 50%;
+			width: 30%;
 			float: left;
 			text-align: left;
 		}
 
 		#pointP2 {
-			width: 50%;
+			width: 30%;
 			float: right;
 			text-align: right;
 		}
 
 		#buttons {
+			width: auto;
 			text-align: center;
+			display: inline-block;
 		}
 
 		#canvasHolder {
-			margin-left: auto;
+					margin-left: auto;
 			margin-right: auto;
-			display: block;
-			width: 1920px;
+			/*display: block;*/
+			width: 100%;
+			text-align:center;
+			flex: 1 1 auto;
 		}
 
 		button {
@@ -86,7 +106,7 @@
 			-moz-box-shadow: inset 0px 0px 10px #c1c1c1;
 			box-shadow: inset 0px 0px 10px #c1c1c1;
 		}
-
+		
 		.highlight {
 			transition: all 0.35s;
 			border-bottom: 2px solid white;
@@ -98,6 +118,12 @@
 			border-radius: 20px;
 			display: block;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		html,
+body {
+  height: 100%;
+  margin: 0
+}
 	</style>
 
 </body>

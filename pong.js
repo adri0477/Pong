@@ -1,7 +1,13 @@
 //Globale variable. Her kan vi lave den konfiguration vi har brug for hurtigt at kunne ændre
+window.onload = () => {
 
-const gameWidth = 500;
-const gameHeight = 500;
+var clientWidth = document.getElementById('canvasHolder').clientWidth;
+var clientHeigt = document.getElementById('canvasHolder').clientHeight;
+
+let gameWidth = clientWidth-30;
+const gameHeight = clientHeigt-10;
+console.log(gameHeight);
+
 
 const KEY_P1_UP = 'w';
 const KEY_P1_DOWN = 's';
@@ -32,9 +38,10 @@ window.addEventListener("keyup", function (event)
 var canvas = document.createElement('canvas');
 canvas.width = gameWidth;
 canvas.height = gameHeight;
+//canvas.style.display = 'inline';
 var context = canvas.getContext('2d');
 
-
+console.log(gameHeight);
 const animationFrame = window.requestAnimationFrame;
 
 //Step-funktionen bliver kaldt hver "animation frame" (cirka 60 gange i sekundet), og sørger for at alt andet kører.
@@ -57,10 +64,17 @@ const multiplayer = () => createCanvas(false);
 
 const reset = () => location.reload();
 
+document.getElementById("singleplayer").addEventListener("click", function(){
+    singleplayer();
+});
+document.getElementById("multiplayer").addEventListener("click", function(){
+    multiplayer();
+});
 class Ball
 {
     constructor()
     {
+        
         this.width = 20;
         this.height = 20;
         this.x = gameWidth / 2 - this.width / 2;
@@ -76,6 +90,7 @@ class Ball
     }
     update()
     {
+        
         if (objectIntersects(this, player2))
         {
             this.xspeed = -this.xspeed;
@@ -166,6 +181,7 @@ const render = () =>
     player1.render();
     player2.render();
     ball.render();
+    
 }
 
 
@@ -219,7 +235,7 @@ let highlight = document.createElement('span');
 highlight.classList.add('highlight');
 document.getElementsByTagName('BODY')[0].appendChild(highlight);
 
-function highlightLink()
+/*function highlightLink()
 {
     let linkCoords = this.getBoundingClientRect();
     console.log(linkCoords)
@@ -237,3 +253,7 @@ function highlightLink()
 
 
 triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+
+
+*/
+}
