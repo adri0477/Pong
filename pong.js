@@ -1,5 +1,37 @@
-//Globale variable. Her kan vi lave den konfiguration vi har brug for hurtigt at kunne ændre
+var peer = new Peer({key:'lwjd5qra8257b9'}); 
+peer.on('open', function(id) {
+    console.log(id);
+});
+
+const host = (id) => {
+    var conn = peer.connect(id);
+    conn.on('open', function() {
+        // Receive messages
+        conn.on('data', function(data) {
+          console.log('Received', data);
+        });
+      
+        // Send messages
+        conn.send('Hello!');
+      });
+}
+const receive = () => {
+    
+    peer.on('connection', function(conn) {
+        conn.on('data', function(data) {
+            console.log('Received', data);
+          });
+        
+          // Send messages
+          conn.send('Hello!');
+    });
+}
+
 window.onload = () => {
+
+
+
+
 
 var clientWidth = document.getElementById('canvasHolder').clientWidth;
 var clientHeigt = document.getElementById('canvasHolder').clientHeight;
